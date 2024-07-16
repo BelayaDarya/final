@@ -1,0 +1,32 @@
+plugins {
+  id 'java'
+}
+
+group 'com.leverx'
+version '1.0-SNAPSHOT'
+
+repositories {
+  mavenCentral()
+}
+
+ext {
+  junitVersion = '5.10.0'
+}
+
+sourceCompatibility = '18'
+targetCompatibility = '18'
+
+tasks.withType(JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
+dependencies {
+  testImplementation('org.seleniumhq.selenium:selenium-java:4.13.0')
+  testImplementation('org.assertj:assertj-core:3.24.2')
+
+  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+useJUnitPlatform()}
